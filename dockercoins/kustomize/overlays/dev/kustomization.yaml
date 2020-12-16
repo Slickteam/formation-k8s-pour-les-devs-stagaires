@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+bases:
+  - ../../base
+
+images:
+  - name: slickteam/dockercoins-hasher
+    newTag: dev
+  - name: slickteam/dockercoins-rng
+    newTag: dev
+  - name: slickteam/dockercoins-worker
+    newTag: dev
+  - name: slickteam/dockercoins-webui
+    newTag: dev
