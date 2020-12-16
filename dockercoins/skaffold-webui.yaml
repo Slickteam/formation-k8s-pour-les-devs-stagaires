@@ -1,0 +1,10 @@
+apiVersion: skaffold/v1
+kind: Config
+build:
+ artifacts:
+ - image: slickteam/dockercoins-webui
+   context: webui
+deploy:
+ kubectl:
+   manifests:
+     - kustomize/base/webui_deploy.yaml
