@@ -1,0 +1,16 @@
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+ name: dockercoins
+ annotations:
+   ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+ rules:
+ - host: guestbook.172.26.0.5.nip.io
+   http:
+     paths:
+     - path: /
+       backend:
+         serviceName: nodejs-guestbook-frontend
+         servicePort: 80
