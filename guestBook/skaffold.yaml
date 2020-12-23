@@ -1,0 +1,21 @@
+apiVersion: skaffold/v1
+kind: Config
+build:                                     # Pour builder les images docker
+  tagPolicy:
+    sha256: {}  
+  local: {}                                
+  artifacts:                            
+  - image: nodejs-guestbook-frontend       # docker build -t nodejs-guestbook-frontend src/frontend
+    context: src/frontend
+  - image: nodejs-guestbook-backend        # docker build -t nodejs-guestbook-backend src/backend
+    context: src/backend
+deploy:                                    # Pour déployer dans le cluster
+ kustomize:                                # kubectl/helm ou kustomize
+   path: "kustomize/overlays/dev"          # kubectl apply -k kustomize/overlays/dev
+
+## Le push des images dans le cluster est implicite
+portForward:
+- resourceType: deployment
+  resourceName: nodejs-guestbook-frontend
+  port: 8080
+  localPort: 8000
