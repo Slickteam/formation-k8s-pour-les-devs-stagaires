@@ -19,7 +19,8 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: nodejs-guestbook-frontend
+        image: nodejs-guestbook-frontend:latest
+        imagePullPolicy: IfNotPresent
         ports:
         - name: http-server
           containerPort: 8080
