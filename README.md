@@ -1,4 +1,4 @@
-# Formaton apprivoiser Kubernetes
+# Formaton Kubernetes pour les devs
 
 Ce dépôt contient les sources utiles pour le stagiaires.
 
@@ -8,13 +8,7 @@ Les branches nommées **solution_<nom_chapitre>** contient les solutions des exe
 
 ## Contenu de la branche main
 
-Le dossier `dockercoins/` est un projet "*micro-service" pour générer des "dockercoins"
-
-Le dossier `bugged-dockercoins/` est une version boguée de **dockercoins**
-
-Le dossier `configurations/` est un TP pour tester une configuration de projet via un **ConfigMap**
-
-Le dossier `chevereto` est un logiciel de stockage de photos en lignes
+Le dossier `guestbook` contient un projet nodejs de gestion de livre
 
 
 
