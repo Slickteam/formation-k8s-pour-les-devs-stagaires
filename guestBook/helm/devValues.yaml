@@ -1,0 +1,5 @@
+image:
+  backend: k3d-myregistry.localhost:5111/nodejs-guestbook-backend:latest
+  frontend: k3d-myregistry.localhost:5111/nodejs-guestbook-frontend:latest
+
+ingressHost: guestbook.helm.127.0.0.1.nip.io

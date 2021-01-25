@@ -4,7 +4,6 @@ kind: Kustomization
 resources:
 - guestbook-backend.deployment.yaml  
 - guestbook-frontend.deployment.yaml  
-- ingress.yaml        
 - mongo.deployment.yaml
 - guestbook-backend.service.yaml
 - guestbook-frontend.service.yaml

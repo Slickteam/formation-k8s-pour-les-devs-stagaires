@@ -3,3 +3,13 @@ kind: Kustomization
 
 bases:
   - ../../base
+
+resources:
+  - ingress.yaml
+
+
+images:
+- name: nodejs-guestbook-backend:latest
+  newName: k3d-myregistry.localhost:5111/nodejs-guestbook-backend
+- name: nodejs-guestbook-frontend:latest
+  newName: k3d-myregistry.localhost:5111/nodejs-guestbook-frontend

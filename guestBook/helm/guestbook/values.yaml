@@ -1,0 +1,5 @@
+image:
+  backend: nodejs-guestbook-backend:latest
+  frontend: nodejs-guestbook-frontend:latest
+
+ingressHost: guestbook.127.0.0.1.nip.io
