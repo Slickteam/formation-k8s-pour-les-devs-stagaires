@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: k3d-myregistry.localhost:5111/nodejs-guestbook-frontend:latest
+        image: k3d-myregistry.localhost:5000/nodejs-guestbook-frontend:latest
         imagePullPolicy: IfNotPresent
         ports:
         - name: http-server

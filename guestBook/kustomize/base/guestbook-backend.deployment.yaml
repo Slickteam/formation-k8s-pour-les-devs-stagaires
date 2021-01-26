@@ -26,7 +26,7 @@ spec:
      containers:
       - name: backend
         image: nodejs-guestbook-backend:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - name: http-server
           containerPort: 8080

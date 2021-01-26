@@ -9,7 +9,7 @@ resources:
 
 
 images:
-- name: nodejs-guestbook-backend:latest
-  newName: k3d-myregistry.localhost:5111/nodejs-guestbook-backend
-- name: nodejs-guestbook-frontend:latest
-  newName: k3d-myregistry.localhost:5111/nodejs-guestbook-frontend
+- name: nodejs-guestbook-backend
+  newName: k3d-myregistry.localhost:5000/nodejs-guestbook-backend
+- name: nodejs-guestbook-frontend
+  newName: k3d-myregistry.localhost:5000/nodejs-guestbook-frontend

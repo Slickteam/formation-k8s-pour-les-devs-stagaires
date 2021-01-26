@@ -1,17 +1,34 @@
 apiVersion: skaffold/v1
 kind: Config
-build:                                     # Pour builder les images docker
+build:                                     
   tagPolicy:
-    sha256: {}  
-  local: {}                                
-  artifacts:                            
-  - image: nodejs-guestbook-frontend       # docker build -t nodejs-guestbook-frontend src/frontend
+    sha256: {}
+  local: 
+    push: true    # On s’authorise a pusher sur notre repository local
+  insecureRegistries:
+  - k3d-myregistry.localhost:5000          
+  artifacts:
+     # docker build -t k3d-myregistry.localhost:5000/nodejs-guestbook-frontend:<complex_tag> src/frontend
+     # docker push k3d-myregistry.localhost:5000/nodejs-guestbook-frontend:<complex_tag>                          
+  - image: k3d-myregistry.localhost:5000/nodejs-guestbook-frontend       
     context: src/frontend
-  - image: nodejs-guestbook-backend        # docker build -t nodejs-guestbook-backend src/backend
+     # docker build -t k3d-myregistry.localhost:5000/nodejs-guestbook-backend:<complex_tag> src/backend
+     # docker push k3d-myregistry.localhost:5000/nodejs-guestbook-backend:<complex_tag>  
+  - image: k3d-myregistry.localhost:5000/nodejs-guestbook-backend       
     context: src/backend
 deploy:                                    # Pour déployer dans le cluster
  kustomize:                                # kubectl/helm ou kustomize
    path: "kustomize/overlays/dev"          # kubectl apply -k kustomize/overlays/dev
+#kubectl:
+#   manifests:
+#    - k8s/*
+#helm:
+#  helm:
+#    releases:
+#    - name: guestbook
+#      chartPath: helm/guestbook
+#      valuesFiles: helm/devValues
+
 
 ## Le push des images dans le cluster est implicite
 portForward:
