@@ -27,10 +27,9 @@ deploy:                                    # Pour déployer dans le cluster
 #    releases:
 #    - name: guestbook
 #      chartPath: helm/guestbook
-#      valuesFiles: helm/devValues
+#      valuesFiles: helm/devValues.yaml
 
 
-## Le push des images dans le cluster est implicite
 portForward:
 - resourceType: deployment
   resourceName: nodejs-guestbook-frontend
